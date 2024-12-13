@@ -4,20 +4,25 @@ class Rectangle:
         self._width = width
         self._height = height
 
-    def set_width(self,w):
-        if w<=0:
-            raise ValueError("width must be greater than 0")
+    @property
+    def width(self):
+        return self._width
+    @width.setter
+    def width(self, value):
+        if value < 0:
+            print("width must be +ve")
         else:
-            self._width = w
+            self._width = value
 
-    def get_height(self):
+    @property
+    def height(self):
         return self._height
-
-    def set_height(self,h):
-        if h<=0:
-            raise ValueError("height must be greater than 0")
+    @height.setter
+    def height(self, value):
+        if value < 0:
+            print("height must be +ve")
         else:
-            self._height = h
+            self._height = value
 
     def area(self):
         return self._width * self._height
@@ -41,24 +46,11 @@ class Rectangle:
         else:
             return False
 
-    def get_width(self):
-        return self._width
-
-
-
-
 r1=Rectangle(10,20)
-r1.set_width(10)
-r1.set_height(20)
+print(r1.width)
+print(r1.height)
+
+r1.width=800
+r1.height=-600
 print(r1.area())
-print(r1.perimeter())
-print(str(r1))
-r2=Rectangle(10,20)
-print(r1==r2)
-
-print(r1==100)
-print(r1 < r2)
-
-# RAISE ERROR
-# r2.set_width(-10)
-# r2.set_height(-20)
+print(r1)
