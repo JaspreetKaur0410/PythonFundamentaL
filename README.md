@@ -1,71 +1,97 @@
 # Python Fundamentals Repository
 
-This repository covers the fundamentals of Python programming, organized into key topics.
+This repository serves as a comprehensive guide to Python fundamentals, designed for programmers of all levels to strengthen their understanding of core concepts.
 
 ## Contents
-
-- **python_basics_!**: Explains the use and functionality of multiline strings in Python.
-- **ClassFundamental**: Provides an introduction to Classes and Objects in Python.
-- **PythonFundamental**: Covers key concepts about using getter & setter methods and Python's `@property` decorator.
-- **Variable And Memory**: Explains Python's memory management, variable referencing, and object lifecycle.
-
----
-
-## PythonBasics - Key Points to Remember
-
-### Getter & Setter
-1. **No Need for Getter & Setter by Default**  
-   - Use getter and setter methods only when you need to implement custom logic for accessing or modifying attributes.
-2. **Using @property and @<value>.setter**  
-   - If you don't want to rewrite code to add getter and setter methods, use the `@property` decorator and its corresponding `@<value>.setter`.  
-   - This approach allows you to encapsulate logic while preventing breaking existing code.
+1. [Python Basics](#python-basics)
+2. [Class Fundamentals](#class-fundamentals)
+3. [Python Fundamentals](#python-fundamentals)
+4. [Variables and Memory](#variables-and-memory)
+5. [Numeric Types](#numeric-types)
+6. [Function Parameters](#function-parameters)
+7. [First Class Functions](#first-class-functions)
 
 ---
 
-## Variable And Memory - Key Points to Remember
+## Python Basics
 
-1. **Python Memory Manager**  
-   - Storing and retrieving objects from the heap is managed by the Python Memory Manager.
+### Multiline Strings
+- Learn the functionality and use of multiline strings in Python.
 
-2. **Variables as References**  
-   - Variables are references to the memory address where the object is stored.
+---
 
-3. **Reference Count**  
-   - The `ref_count` for a memory address increases whenever a variable references that memory address.
-   - When the reference count hits `0`, the Memory Manager destroys the object and reclaims the memory.
+## Class Fundamentals
 
-4. **Circular Reference**  
-   - Occurs when object A points to object B and object B points back to object A.
-   - This can lead to memory leaks as the Memory Manager cannot clean up these objects.
+- Introduction to Classes and Objects in Python.
+- Understand how to define and use getter and setter methods with the `@property` decorator.
 
-5. **Reassignment**  
-   - On reassignment, a variable is stored at a new memory location.
+---
 
-6. **Modifying Internal State**  
-   - Changing the data inside an object is known as modifying its internal state.
+## Python Fundamentals
 
-7. **Mutable vs Immutable**  
-   - **Mutable**: Objects whose internal state can be changed (e.g., `Lists`, `Sets`, `Dictionaries`, `User-Defined Classes`).
-   - **Immutable**: Objects whose internal state cannot be changed (e.g., `Numbers`, `Strings`, `Tuples`, `Frozen Sets`, `User-Defined Classes`).
+### Key Points on Getter & Setter
+1. **No Need for Getter & Setter by Default**
+   - Use them only when custom logic is needed.
+2. **Using @property and @<value>.setter**
+   - The `@property` decorator simplifies getter and setter implementation without breaking existing code.
 
-8. **Shared References**  
-   - Two variables referencing the same object in memory is called shared references.
-   - Example: If `a = 10` and `b = 10`, both variables share the same memory address. This is safe for immutable objects.
+---
 
-9. **Mutable Objects and Shared References**  
-   - Python Memory Manager avoids shared references with mutable objects because changes by one variable would affect the other.
+## Variables and Memory
 
-10. **Identity Check with `is`**  
-    - The `is` operator checks if two variables point to the same memory address (`a is b`).
-    - Note: It might return `False` in some cases even if the values are the same.
+### Key Concepts
+1. **Memory Management**
+   - Python Memory Manager handles the heap where objects are stored.
+2. **Variable Referencing**
+   - Variables are references to memory addresses.
+3. **Reference Count**
+   - `ref_count` increases when an object is referenced; it is destroyed when the count drops to zero.
+4. **Circular References**
+   - Occurs when two objects reference each other, leading to memory leaks.
+5. **Mutable vs Immutable**
+   - **Mutable**: Objects whose state can change (`Lists`, `Dictionaries`).
+   - **Immutable**: Objects whose state cannot change (`Numbers`, `Strings`, `Tuples`).
 
-11. **`None` Variables**  
-    - Variables set to `None` share the same memory address.
+---
 
-12. **Interning**  
-    - Python reuses objects on-demand for performance.
-    - Example: Integers in the range `[-5, 256]` are cached, and references to these integers will use the same memory address.
+## Numeric Types
 
+### Key Points to Remember
+1. **floor()**
+   - Returns the largest integer less than or equal to a value.
+2. **trunc()**
+   - Returns the integer portion of a number, truncating any decimal.
+3. **Constrained Denominator**
+   - Given a `Fraction` object, approximate it with a constrained denominator.
 
+---
 
+## Function Parameters
 
+### Key Points to Remember
+1. **Unpacking**
+   - Unpacking occurs because the RHS is first evaluated, then assignments are made to the LHS.
+2. **Unordered Types**
+   - Dictionaries and sets are unordered types and cannot be unpacked.
+3. **Tuples by Comma**
+   - Tuples are defined by commas, not parentheses.
+4. **Partial Unpacking**
+   - Use the `*` operator to unpack part of an iterable, assigning the remainder to another variable.
+5. **`*` Usage**
+   - The `*` operator can only be used once in the LHS.
+
+---
+
+## First Class Functions
+
+### Key Points to Remember
+1. **First Class Objects**
+   - Functions can be passed as arguments, returned from other functions, assigned to variables, or stored in data structures.
+2. **Higher-Order Functions**
+   - Functions that take another function as an argument or return a function.
+3. **`map` Function**
+   - Takes a function and a variable number of iterable objects.
+   - Returns an iterator that applies the function to each element.
+   - Stops when the shortest iterable is exhausted.
+
+---
