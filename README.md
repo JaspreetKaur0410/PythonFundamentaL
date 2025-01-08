@@ -1,97 +1,70 @@
-# Python Fundamentals Repository
+# PythonFundamental - Key Points to Remember
 
-This repository serves as a comprehensive guide to Python fundamentals, designed for programmers of all levels to strengthen their understanding of core concepts.
-
-## Contents
-1. [Python Basics](#python-basics)
-2. [Class Fundamentals](#class-fundamentals)
-3. [Python Fundamentals](#python-fundamentals)
-4. [Variables and Memory](#variables-and-memory)
-5. [Numeric Types](#numeric-types)
-6. [Function Parameters](#function-parameters)
-7. [First Class Functions](#first-class-functions)
+This repository provides concise notes on important concepts of Python, covering various topics like getter/setter methods, memory management, numeric types, function parameters, and first-class functions.
 
 ---
 
-## Python Basics
-
-### Multiline Strings
-- Learn the functionality and use of multiline strings in Python.
-
----
-
-## Class Fundamentals
-
-- Introduction to Classes and Objects in Python.
-- Understand how to define and use getter and setter methods with the `@property` decorator.
+## 1. Getter & Setter
+- **When to use:** Avoid using getters and setters unless logic needs to be implemented.
+- **Alternative Approach:** Use `@property` and `@<value>.setter` decorators to prevent breaking the code while avoiding traditional getter/setter.
 
 ---
 
-## Python Fundamentals
-
-### Key Points on Getter & Setter
-1. **No Need for Getter & Setter by Default**
-   - Use them only when custom logic is needed.
-2. **Using @property and @<value>.setter**
-   - The `@property` decorator simplifies getter and setter implementation without breaking existing code.
-
----
-
-## Variables and Memory
-
-### Key Concepts
-1. **Memory Management**
-   - Python Memory Manager handles the heap where objects are stored.
-2. **Variable Referencing**
-   - Variables are references to memory addresses.
-3. **Reference Count**
-   - `ref_count` increases when an object is referenced; it is destroyed when the count drops to zero.
-4. **Circular References**
-   - Occurs when two objects reference each other, leading to memory leaks.
-5. **Mutable vs Immutable**
-   - **Mutable**: Objects whose state can change (`Lists`, `Dictionaries`).
-   - **Immutable**: Objects whose state cannot change (`Numbers`, `Strings`, `Tuples`).
+## 2. Variable and Memory - Key Points
+1. **Memory Management:** Python Memory Manager handles storing and retrieving objects in the heap.
+2. **Variables as References:** Variables reference the memory address where the object is stored.
+3. **Reference Counting:** Incremented for a memory address whenever a variable points to it.
+4. **Object Destruction:** When reference count hits 0, the object is destroyed, and memory is reclaimed.
+5. **Circular Reference:** Occurs when objects reference each other, causing a memory leak.
+6. **Re-assignment:** Creates a new memory location for the variable.
+7. **State Modification:** Changing an object's data modifies its internal state.
+8. **Mutability:**
+   - Mutable: Lists, Sets, Dictionaries, User-Defined Classes.
+   - Immutable: Numbers, Strings, Tuples, Frozen Sets, User-Defined Classes.
+9. **Shared References:** Multiple variables referencing the same object in memory.
+   - Safe for immutable objects.
+   - Not applicable to mutable objects.
+10. **Memory Address Check:** Use `is` to compare memory addresses, but results may vary.
+11. **None References:** All variables assigned `None` share the same memory address.
+12. **Interning:** Reusing objects in a specific range (e.g., integers `[-5, 256]`).
 
 ---
 
-## Numeric Types
-
-### Key Points to Remember
-1. **floor()**
-   - Returns the largest integer less than or equal to a value.
-2. **trunc()**
-   - Returns the integer portion of a number, truncating any decimal.
-3. **Constrained Denominator**
-   - Given a `Fraction` object, approximate it with a constrained denominator.
+## 3. Numeric Types - Key Points
+1. `floor()`: Returns the largest integer ≤ value.
+2. `trunc()`: Extracts the integer portion of a number.
+3. **Constrained Denominator:** Approximate fractions with a constrained denominator using `Fraction`.
 
 ---
 
-## Function Parameters
-
-### Key Points to Remember
-1. **Unpacking**
-   - Unpacking occurs because the RHS is first evaluated, then assignments are made to the LHS.
-2. **Unordered Types**
-   - Dictionaries and sets are unordered types and cannot be unpacked.
-3. **Tuples by Comma**
-   - Tuples are defined by commas, not parentheses.
-4. **Partial Unpacking**
-   - Use the `*` operator to unpack part of an iterable, assigning the remainder to another variable.
-5. **`*` Usage**
-   - The `*` operator can only be used once in the LHS.
+## 4. Function Parameters - Key Points
+1. **Unpacking:** Right-hand side (RHS) is evaluated first before assignments on the left-hand side (LHS).
+2. **Unordered Types:** Dictionaries and Sets can't be unpacked.
+3. **Tuples:** Defined by commas, not brackets.
+4. **Selective Unpacking:** Use `*` to unpack a portion of an iterable.
+5. **Single Use of `*`:** The `*` operator can only be used once in the LHS.
 
 ---
 
-## First Class Functions
-
-### Key Points to Remember
-1. **First Class Objects**
-   - Functions can be passed as arguments, returned from other functions, assigned to variables, or stored in data structures.
-2. **Higher-Order Functions**
-   - Functions that take another function as an argument or return a function.
-3. **`map` Function**
-   - Takes a function and a variable number of iterable objects.
-   - Returns an iterator that applies the function to each element.
+## 5. First-Class Functions - Key Points
+1. **First-Class Objects:** Can be:
+   - Passed to a function as arguments.
+   - Returned from functions.
+   - Assigned to variables or stored in data structures.
+2. **Higher-Order Functions:** Functions that take another function as an argument or return one.
+3. **Callables:**
+   - Objects that can be called and return a value.
+   - Includes built-in functions, methods, classes, class instances, and generators.
+4. **`map` Function:**
+   - Syntax: `map(func, *iterables)`
+   - Applies a function to elements of iterables.
    - Stops when the shortest iterable is exhausted.
+5. **Reducing Functions:** Combine elements of an iterable recursively to produce a single value.
+6. **Deferred Execution:** 
+   - Functions like `map`, `filter`, and `zip` return generators, not lists or tuples.
+   - Calculations are deferred until needed, enabling efficient memory usage.
+   - Generators are not reusable after iteration.
 
 ---
+
+This document serves as a quick reference for Python developers to reinforce fundamental concepts and best practices. 🚀
